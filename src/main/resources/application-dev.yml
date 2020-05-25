@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  profiles: dev
+
+  datasource:
+    dricer-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/weixin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: 123456
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    maxIdle: 20
+# springboot整合mybatis
+mybatis:
+  # 定义别名包
+  type-aliases-package: com.example.demo.pojo    # 这里是实体类的位置，实体扫描，多个package用逗号或者分号分隔
+  # 加载mapper映射文件
+  mapper-locations: classpath:/mybatis/*.xml
+
+  configuration:
+    # 开启驼峰映射
+    map-underscore-to-camel-case: true
+    # 使全局的映射器启用或禁用缓存
+    cache-enabled: false
+logging:
+  file: test-service.log
+  level:
+    com.test: debug

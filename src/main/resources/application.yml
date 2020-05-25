@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    active: dev  #指定当前使用的是哪个环境配置
+
